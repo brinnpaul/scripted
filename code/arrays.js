@@ -18,20 +18,29 @@ function getSumForEach(array) {
   // Your code here
   // You have to use the forEach method to pass the test!
   // Test based on sumArray
+  // ForEach Docs: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach
 }
 
 function getSumReduce(array) {
   // Your code here
   // You have to use the reduce method to pass the test!
   // Test based on sumArray
+  // Reduce Docs: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce
 }
 
 
 var greaterThanArray = [0,2,5,6];
 
-function getNumbersGreaterThan(array, value) {
+function getNumbersGreaterThanFilter(array, value) {
   // Your code here
   // You have to use the filter method to pass the test!
+  // Test based on greaterThanArray
+  // Filter Docs: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter
+}
+
+function getNumbersGreaterThanReduce(array, value) {
+  // Your code here
+  // You have to use the reduce method to pass the test!
   // Test based on greaterThanArray
 }
 
@@ -54,6 +63,7 @@ function getEvenCountMap(array) {
   // Your code here
   // You have to use the map method to pass the test!
   // Test based on evenCountArray
+  // Map Docs: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map
 }
 
 // helper method for getEvenCountMap
@@ -70,7 +80,8 @@ module.exports = {
   getSum: getSum,
   getSumForEach: getSumForEach,
   getSumReduce: getSumReduce,
-  getNumbersGreaterThan: getNumbersGreaterThan,
+  getNumbersGreaterThanFilter: getNumbersGreaterThanFilter,
+  getNumbersGreaterThanReduce: getNumbersGreaterThanReduce,
   getEvenCountFilter: getEvenCountFilter,
   getEvenCountMap: getEvenCountMap
 };

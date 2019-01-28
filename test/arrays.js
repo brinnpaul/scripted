@@ -49,8 +49,13 @@ describe('All About Arrays', function() {
 
     describe("Get Numbers greater than 3", function() {
         xit("Should equal [5,6], use filter method", function() {
-          expect(Arrays.getNumbersGreaterThan(greaterThanArray, 3)).to.eql([5,6]);
+          expect(Arrays.getNumbersGreaterThanFilter(greaterThanArray, 3)).to.eql([5,6]);
           assert(Arrays.greaterThanArray.filter.calledOnce);
+          });
+
+        xit("Should equal [5,6], use reduce method", function() {
+          expect(Arrays.getNumbersGreaterThanReduce(greaterThanArray, 3)).to.eql([5,6]);
+          assert(Arrays.greaterThanArray.reduce.calledOnce);
           });
       });
 
