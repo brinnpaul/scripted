@@ -6,59 +6,65 @@ var Arrays = require('../code/arrays');
 
 describe('All About Arrays', function() {
 
-    var numbers = Arrays.numberArray;
-    sinon.spy(Arrays.numberArray, "forEach");
-    sinon.spy(Arrays.numberArray, "reduce");
-    sinon.spy(Arrays.numberArray, "filter");
-    sinon.spy(Arrays.numberArray, "map");
+    var sumArray = Arrays.sumArray;
+    var greaterThanArray = Arrays.greaterThanArray;
+    var evenCountArray = Arrays.evenCountArray;
+
+    var spyOn = [sumArray, greaterThanArray, evenCountArray];
+    var functions = ["forEach", "reduce", "filter", "map"];
+    spyOn.forEach(array => {
+        functions.forEach(f => {
+            sinon.spy(array, f);
+          });
+      });
 
     describe("Get Value at an index", function() {
        xit("Value at index 3", function() {
-         expect(Arrays.getValueAtIndex(numbers, 3)).to.equal(4);
+         expect(Arrays.getValueAtIndex(sumArray, 3)).to.equal(4);
          });
        xit("Value at index 10", function() {
-         expect(Arrays.getValueAtIndex(numbers, 10)).to.equal(undefined);
+         expect(Arrays.getValueAtIndex(sumArray, 10)).to.equal(undefined);
          });
       });
 
     describe("Get Sum of numberArray", function() {
       xit("Sum value of numberArray should equal 10", function() {
-        expect(Arrays.getSum(numbers)).to.equal(10);
+        expect(Arrays.getSum(sumArray.slice())).to.equal(10);
         });
       });
 
     describe("Get Sum forEach", function() {
       xit("Get sum of numberArray using forEach method", function() {
-        expect(Arrays.getSumForEach(Arrays.numberArray)).to.equal(10);
-        assert(Arrays.numberArray.forEach.calledOnce);
+        expect(Arrays.getSumForEach(sumArray)).to.equal(10);
+        assert(Arrays.sumArray.forEach.calledOnce);
         });
       });
 
     describe("Get Sum reduce", function() {
       xit("Get sum of numberArray using reduce method", function() {
-        expect(Arrays.getSumReduce(Arrays.numberArray)).to.equal(10);
-        assert(Arrays.numberArray.reduce.calledOnce);
+        expect(Arrays.getSumReduce(sumArray)).to.equal(10);
+        assert(Arrays.sumArray.reduce.calledOnce);
       });
     });
 
     describe("Get Numbers greater than 3", function() {
-        xit("Should equal [4], use filter method", function() {
-          expect(Arrays.getNumbersGreaterThan(numbers, 3)).to.eql([4]);
-          assert(Arrays.numberArray.filter.calledOnce);
+        xit("Should equal [5,6], use filter method", function() {
+          expect(Arrays.getNumbersGreaterThan(greaterThanArray, 3)).to.eql([5,6]);
+          assert(Arrays.greaterThanArray.filter.calledOnce);
           });
       });
 
     describe("Get Even Numbers filter", function() {
         xit("Should equal 2, use filter method", function() {
-          expect(Arrays.getEvenCountFilter(numbers)).to.equal(2);
-          assert(Arrays.numberArray.filter.calledTwice);
+          expect(Arrays.getEvenCountFilter(evenCountArray)).to.equal(2);
+          assert(Arrays.evenCountArray.filter.calledOnce);
           });
       });
 
     describe("Get Even Numbers map", function() {
         xit("Should equal 2, use map method", function() {
-          expect(Arrays.getEvenCountMap(numbers)).to.equal(2);
-          assert(Arrays.numberArray.map.calledOnce);
+          expect(Arrays.getEvenCountMap(evenCountArray)).to.equal(2);
+          assert(Arrays.evenCountArray.map.calledOnce);
           });
       });
   });
